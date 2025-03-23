@@ -1,5 +1,0 @@
-ejb\session\MySessionBean.class
-client\controller\EJBClient.class
-ejb\remote\MySessionBeanRemote.class
-com\mycompany\wns\JakartaRestConfiguration.class
-com\mycompany\wns\resources\JakartaEE11Resource.class
