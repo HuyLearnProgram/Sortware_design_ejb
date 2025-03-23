@@ -49,7 +49,7 @@
         <dependency>
             <groupId>jakarta.servlet.jsp</groupId>
             <artifactId>jakarta.servlet.jsp-api</artifactId>
-            <version>4.0.0</version> <!-- Check compatibility -->
+            <version>4.0.0</version>   
             <scope>provided</scope>
         </dependency>
         
@@ -60,7 +60,7 @@
         </dependency>
     
         <!-- Thêm dependency của Lombok -->
-<!--        <dependency>
+        <!--        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.24</version>  Sử dụng phiên bản mới nhất, có thể thay đổi 
@@ -68,11 +68,45 @@
             <scope>provided</scope> Lombok chỉ cần tại thời điểm biên dịch, không cần trong runtime 
         </dependency>-->
         <dependency>
-    <groupId>org.projectlombok</groupId>
-    <artifactId>lombok</artifactId>
-    <version>1.18.30</version> <!-- Cập nhật về phiên bản ổn định mới nhất -->
-    <scope>provided</scope> <!-- Lombok chỉ cần tại thời điểm biên dịch -->
-</dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.30</version> <!-- Cập nhật về phiên bản ổn định mới nhất -->
+            <scope>provided</scope> <!-- Lombok chỉ cần tại thời điểm biên dịch -->
+        </dependency>
+        
+        <!--        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.4.30.Final</version>
+        </dependency>-->
+<!--        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.6.10.Final</version>  Phiên bản mới hơn 
+        </dependency>-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>6.5.3.Final</version> <!-- Phiên bản mới hơn -->
+        </dependency>
+
+        
+        <!--        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
+            <version>3.0</version>
+        </dependency>-->
+<!--        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>3.1.0</version>  Phiên bản mới hơn 
+        </dependency>-->
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>3.2.0</version> <!-- Phiên bản mới hơn -->
+        </dependency>
+        
         
     </dependencies>
     
@@ -81,12 +115,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                                <version>3.12.1</version>
+                <version>3.12.1</version>
                 <configuration>
                     <source>17</source>
                     <target>17</target>
                 </configuration>
-<!--                <version>3.11.0</version>  Cập nhật lên phiên bản mới nhất 
+                <!--                <version>3.11.0</version>  Cập nhật lên phiên bản mới nhất 
                 <configuration>
                     <release>21</release>  Đảm bảo rằng JDK 21 được chỉ định 
                 </configuration>-->
@@ -95,19 +129,20 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.4.0</version>
-                <configuration>
-                    <welcomeFile>index.jsp</welcomeFile> <!-- Đặt welcome file của bạn tại đây -->
-                </configuration>
                 <!--                <configuration>
+                    <welcomeFile>index.jsp</welcomeFile>  Đặt welcome file của bạn tại đây 
+                </configuration>-->
+                <configuration>
                     <webResources>
                         <resource>
                             <directory>src/main/resources</directory>
                             <includes>
                                 <include>**/beans.xml</include>
+                                <include>**/META-INF/persistence.xml</include>
                             </includes>
                         </resource>
                     </webResources>
-                </configuration>-->
+                </configuration>
                 
             </plugin>
         </plugins>

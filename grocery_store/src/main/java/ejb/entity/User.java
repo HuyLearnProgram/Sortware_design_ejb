@@ -11,13 +11,10 @@ package ejb.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
+
 
 @Entity
 @Data  // Lombok sẽ tự động tạo getter, setter, toString, equals, hashCode
-@NoArgsConstructor  // Tạo constructor không tham số
-@AllArgsConstructor // Tạo constructor có tham số
 public class User {
 
     @Id

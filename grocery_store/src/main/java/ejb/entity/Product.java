@@ -17,8 +17,6 @@ import java.time.LocalDateTime;
 @Table(name = "products")
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
 public class Product {
     
@@ -68,4 +66,12 @@ public class Product {
     protected void onUpdate() {
         this.updatedAt = LocalDateTime.now();
     }
+    
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
 }
