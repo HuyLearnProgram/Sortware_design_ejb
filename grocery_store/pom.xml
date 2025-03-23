@@ -37,8 +37,8 @@
             <scope>provided</scope>
         </dependency>-->
         
-                <!-- Servlet API (if necessary) -->
-<!--        <dependency>
+        <!-- Servlet API (if necessary) -->
+        <!--        <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
             <version>4.0.0</version>  Check compatibility with your Jakarta EE version 
@@ -53,6 +53,12 @@
             <scope>provided</scope>
         </dependency>
         
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version> <!-- Đảm bảo sử dụng phiên bản mới nhất -->
+        </dependency>
+    
     </dependencies>
     
     <build>
@@ -73,7 +79,7 @@
                 <configuration>
                     <welcomeFile>index.jsp</welcomeFile> <!-- Đặt welcome file của bạn tại đây -->
                 </configuration>
-<!--                <configuration>
+                <!--                <configuration>
                     <webResources>
                         <resource>
                             <directory>src/main/resources</directory>
