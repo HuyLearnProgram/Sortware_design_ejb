@@ -9,30 +9,51 @@ package ejb.entity;
  * @author Tuan
  */
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+
 @Entity
+@Data  // Lombok sẽ tự động tạo getter, setter, toString, equals, hashCode
+@NoArgsConstructor  // Tạo constructor không tham số
+@AllArgsConstructor // Tạo constructor có tham số
 public class User {
-    
+
     @Id
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // AI (Auto Increment)
+    private Long id;
+
+    @Column(name = "address", length = 255)
+    private String address;
+
+    @Column(name = "avatar_url", length = 255)
+    private String avatarUrl;
+
+    @Column(name = "email", length = 255)
+    private String email;
+
+    @Column(name = "name", length = 255)
     private String name;
 
-    // Getter và Setter
-    public int getId() {
-        return id;
-    }
+    @Column(name = "password", length = 255)
+    private String password;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    @Column(name = "phone", length = 255)
+    private String phone;
 
-    public String getName() {
-        return name;
-    }
+    @Column(name = "status")
+    private int status;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    @Column(name = "role_id")
+    private Long roleId;
+
+    @Column(name = "refresh_token", columnDefinition = "MEDIUMTEXT")
+    private String refreshToken;
+
+    @Column(name = "provider", length = 255)
+    private String provider;
+
+    @Column(name = "provider_id", length = 255)
+    private String providerId;
 }
-
