@@ -10,14 +10,13 @@ package ejb.entity;
  */
 
 import jakarta.persistence.*;
+import java.util.List;
 import lombok.*;
 
 
 @Entity
 @Table(name = "categories")
 @Data  // Lombok sẽ tự động tạo getters, setters, toString, equals, và hashCode
-@NoArgsConstructor  // Tạo constructor không có tham số
-@AllArgsConstructor // Tạo constructor có tham số (imageUrl, name)
 public class Category {
 
     @Id
@@ -29,4 +28,7 @@ public class Category {
 
     @Column(name = "name", length = 255)
     private String name;
+    
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
+    private List<Product> products;
 }
