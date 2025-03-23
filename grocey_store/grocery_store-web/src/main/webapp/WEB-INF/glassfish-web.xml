@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<!DOCTYPE glassfish-web-app PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Servlet 3.0//EN" "http://glassfish.org/dtds/glassfish-web-app_3_0-1.dtd">-->
+<!--
+    Copyright (c) 1997, 2018 Oracle and/or its affiliates. All rights reserved.
+    
+    This program and the accompanying materials are made available under the
+    terms of the Eclipse Public License v. 2.0, which is available at
+    http://www.eclipse.org/legal/epl-2.0.
+
+    This Source Code may also be made available under the following Secondary
+    Licenses when the conditions for such availability set forth in the
+    Eclipse Public License v. 2.0 are satisfied: GNU General Public License,
+    version 2 with the GNU Classpath Exception, which is available at
+    https://www.gnu.org/software/classpath/license.html.
+
+    SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
+-->
+<!--<glassfish-web-app error-url="">
+  <class-loader delegate="true"/>
+  <jsp-config>
+    <property name="keepgenerated" value="true">
+      <description>Keep a copy of the generated servlet class' java code.</description>
+    </property>
+  </jsp-config>
+</glassfish-web-app>-->
+
+<!--<glassfish-web-app xmlns="http://glassfish.org/ns/servlet/3.1">
+     Cấu hình session timeout 
+    <session-config>
+        <session-timeout>30</session-timeout>  Thời gian hết hạn session (30 phút) 
+    </session-config>
+
+     Cấu hình giao thức bảo mật 
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Secure Area</web-resource-name>
+            <url-pattern>/secure/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+     Cấu hình servlet 
+    <servlet>
+        <servlet-name>MyServlet</servlet-name>
+        <servlet-class>com.example.MyServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+</glassfish-web-app>-->
+
+
+<glassfish-web-app xmlns="http://glassfish.org/ns/servlet/3.1">
+    <!-- Chỉ định context root -->
+    <context-root>/myapp</context-root>
+    
+    <!-- Cấu hình session timeout -->
+    <session-config>
+        <session-timeout>15</session-timeout> <!-- Timeout session sau 15 phút -->
+    </session-config>
+
+    <!-- Cấu hình bảo mật cho các URL yêu cầu quyền admin -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Secure Pages</web-resource-name>
+            <url-pattern>/admin/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <!-- Cấu hình servlet -->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.example.LoginServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>  Servlet này được tải khi ứng dụng khởi động 
+    </servlet>
+    
+    
+    <!-- Trang chào mừng -->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+</glassfish-web-app>
+
